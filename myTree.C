@@ -181,8 +181,19 @@ JetUncertainty JEU(jeuFileName);
       } //end of iQQ loop
    } //end of jentry loop
    cout<<"[INFO] Saving the tree for the unfolding" << endl;
-   trUnfFile->Write();
+   //trUnfFile->Write();
    //trUnfFile->cd();
    //trUnf->Write();
    trUnfFile->Close(); delete trUnfFile;
+}
+
+void runAllTrees() {
+  myTree t1(1,1,1); //mc 1S
+  t1.makeFlatTree();
+  myTree t2(1,2,1); //mc 2S 
+  t2.makeFlatTree();
+  myTree t3(1,3,1); //mc 3S 
+  t3.makeFlatTree();
+  myTree t0(0,0,1); //data
+  t0.makeFlatTree();
 }
